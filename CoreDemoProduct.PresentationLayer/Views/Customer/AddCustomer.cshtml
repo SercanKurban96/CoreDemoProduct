@@ -1,0 +1,22 @@
+﻿@model CoreDemoProduct.EntityLayer.Concrete.Customer
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<h2>Yeni Müşteri Sayfası</h2>
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post))
+{
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(x=>x.CustomerName, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.CustomerName)
+    <br />
+    @Html.Label("Şehir")
+    @Html.TextBoxFor(x=>x.CustomerCity, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x=>x.CustomerCity)
+    <br />
+    @Html.Label("Meslek Seçiniz")
+    @Html.DropDownListFor(x=>x.JobID,(List<SelectListItem>)ViewBag.v, new {@class = "form-control"})
+    <br />
+    <button class="btn btn-info">Müşteri Ekle</button>
+}

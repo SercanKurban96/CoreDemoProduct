@@ -1,0 +1,26 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CoreDemoProduct.PresentationLayer.Models
+{
+    public class UserEditViewModel
+    {
+        [Required(ErrorMessage = "Lütfen isim giriniz.")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Lütfen soyisim giriniz.")]
+        public string Surname { get; set; }
+
+        [Required(ErrorMessage = "Lütfen mail adresi giriniz.")]
+        public string Mail { get; set; }
+
+        [Required(ErrorMessage = "Lütfen cinsiyet seçiniz.")]
+        public string Gender { get; set; }
+
+        [Required(ErrorMessage = "Lütfen şifre giriniz.")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Lütfen şifreyi tekrar giriniz.")]
+        [Compare("Password", ErrorMessage = "Lütfen şifrelerin eşleştiğinden emin olun.")]
+        public string ConfirmPassword { get; set; }
+    }
+}
